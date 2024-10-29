@@ -51,11 +51,11 @@ st.header("El mismo grafico hecho con altair")
 
 st.altair_chart(chart, use_container_width=True)
 
-bar_chart = alt.Chart(df).mark_bar().encode(
+bar_chart = alt.Chart(df).mark_bar(color='lightgreen', size=40).encode(
     x=alt.X('Columna 1', title='Primera Columna'),
     y=alt.Y('Columna 2', title='Segunda Columna'),
     tooltip=['Columna 1', 'Columna 2']
 ).interactive()
 
-st.header("El mismo grafico hecho con altair pero de barras")
+# Mostrar el gráfico de barras en Streamlit
 st.altair_chart(bar_chart, use_container_width=True)
