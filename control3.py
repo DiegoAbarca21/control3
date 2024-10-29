@@ -46,6 +46,16 @@ chart = alt.Chart(df).mark_circle(size=60).encode(
     y=alt.Y(df.columns[1], title="Segunda Columna"),  # Usar el nombre de la segunda columna
     tooltip=[df.columns[0], df.columns[1]]  # Mostrar los valores de las columnas en los tooltips
 ).interactive()
+
 st.header("El mismo grafico hecho con altair")
-# Mostrar el gráfico en Streamlit
+
 st.altair_chart(chart, use_container_width=True)
+
+bar_chart = alt.Chart(df).mark_bar().encode(
+    x=alt.X('Columna 1', title='Primera Columna'),
+    y=alt.Y('Columna 2', title='Segunda Columna'),
+    tooltip=['Columna 1', 'Columna 2']
+).interactive()
+
+st.header("El mismo grafico hecho con altair pero de barras")
+st.altair_chart(bar_chart, use_container_width=True)
