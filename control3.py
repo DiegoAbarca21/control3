@@ -37,7 +37,7 @@ ax.scatter(x_data, y_data, color='lightgreen', edgecolor="black")
 ax.set_xlabel("Primera Columna")
 ax.set_ylabel("Segunda Columna")
 ax.set_title('Gráfico de Dispersión')
-
+st.header("Un grafico hecho con plt")
 st.pyplot(fig)
 
 # Crear el gráfico de Altair
@@ -46,6 +46,6 @@ chart = alt.Chart(df).mark_circle(size=60).encode(
     y=alt.Y(df.columns[1], title="Segunda Columna"),  # Usar el nombre de la segunda columna
     tooltip=[df.columns[0], df.columns[1]]  # Mostrar los valores de las columnas en los tooltips
 ).interactive()
-
+st.header("El mismo grafico hecho con altair")
 # Mostrar el gráfico en Streamlit
 st.altair_chart(chart, use_container_width=True)
