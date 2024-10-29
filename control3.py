@@ -9,12 +9,14 @@ st.markdown("Texto en formato exotico")
 
 st.sidebar.image("MICKEY.jpg")
 
-
 primernum = st.sidebar.text_input("Ingrese un numero")
 segundonum = st.sidebar.text_input("Ingrese otro numero")
-primernum.astype(int)
-segundonum.astype(int)
-primersegundonum = np.array([primernum,segundonum])
-nummult = np.prod(primersegundonum)
-nummult.astype(str)
-st.sidebar.write("La multiplicacion es:", nummult)
+
+try:
+  primernum = int(primernum)
+  segundonum = int(segundonum)
+  numeros = np.array([primernum, segundonum])
+  resultado = np.prod(numeros)
+  st.sidebar.write("La multiplicacion es:", resultado)
+except ValueError:
+  st.sidebar.write("Por favor, ingrese números válidos.")
