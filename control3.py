@@ -24,7 +24,7 @@ try:
 except ValueError:
     st.sidebar.write("Por favor, ingrese números válidos.")
 
-df = pd.DataFrame(np.random.randn(25, 30))
+df = pd.DataFrame(np.random.randn(25, 30), columns=[f'Columna {i}' for i in range(30)])
 st.dataframe(df)
 
 x_data = df.iloc[:, 0]
@@ -40,10 +40,12 @@ ax.set_title('Gráfico de Dispersión')
 
 st.pyplot(fig)
 
+# Crear el gráfico de Altair
 chart = alt.Chart(df).mark_circle(size=60).encode(
-    x=df.columns[0],  # Usar el nombre de la primera columna
-    y=df.columns[1],  # Usar el nombre de la segunda columna
-    tooltip=['Columna 0', 'Columna 1']
+    x=alt.X(df.columns[0], title="Primera Columna"),  # Usar el nombre de la primera columna
+    y=alt.Y(df.columns[1], title="Segunda Columna"),  # Usar el nombre de la segunda columna
+    tooltip=[df.columns[0], df.columns[1]]  # Mostrar los valores de las columnas en los tooltips
 ).interactive()
 
+# Mostrar el gráfico en Streamlit
 st.altair_chart(chart, use_container_width=True)
