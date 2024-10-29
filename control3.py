@@ -24,3 +24,9 @@ except ValueError:
 
 df = pd.DataFrame(np.random.randn(25,10))
 st.dataframe(df)
+
+first_column_data = df.iloc[:, 0].to_numpy()
+second_column_data = df.iloc[:, 1].to_numpy()
+
+plt.scatter(first_column_data, second_column_data)
+plt.show()
