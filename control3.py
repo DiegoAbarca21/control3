@@ -22,16 +22,20 @@ try:
 except ValueError:
   st.sidebar.write("Por favor, ingrese números válidos.")
 
-df = pd.DataFrame(np.random.randn(25,10))
+df = pd.DataFrame(np.random.randn(25, 10))
 st.dataframe(df)
 
 first_column_data = df.iloc[:, 0].to_numpy()
 second_column_data = df.iloc[:, 1].to_numpy()
 
+male_count = np.sum(first_column_data > 0)  
+female_count = np.sum(second_column_data > 0)  
+
 fig, ax = plt.subplots(1, 2, figsize=(10, 3))
-ax[0].bar(["Masculino", "Femenino"], [first_column_data, second_column_data], color = "red")
+ax[0].bar(["Masculino", "Femenino"], [male_count, female_count], color="red")
 ax[0].set_xlabel("Sexo")
 ax[0].set_ylabel("Cantidad")
 ax[0].set_title('Distribución de hombres y mujeres')
+
 
 st.pyplot(fig)
