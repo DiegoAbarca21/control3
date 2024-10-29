@@ -23,7 +23,7 @@ try:
 except ValueError:
   st.sidebar.write("Por favor, ingrese números válidos.")
 
-df = pd.DataFrame(np.random.randn(25, 10))
+df = pd.DataFrame(np.random.randn(25, 30))
 st.dataframe(df)
 
 x_data = df.iloc[:, 0].to_numpy()  # Primera columna
