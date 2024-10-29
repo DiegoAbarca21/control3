@@ -26,18 +26,19 @@ except ValueError:
 df = pd.DataFrame(np.random.randn(25, 10))
 st.dataframe(df)
 
-# Extraer los datos de las primeras dos columnas
-first_column_data = df.iloc[:, 0].to_numpy()
-second_column_data = df.iloc[:, 1].to_numpy()
+x_data = df.iloc[:, 0].to_numpy()  # Primera columna
+y_data = df.iloc[:, 1].to_numpy()  # Segunda columna
 
 # Crear una figura con un solo gráfico
-fig, ax = plt.subplots(1, 1, figsize=(10, 3))
+fig, ax = plt.subplots(figsize=(10, 5))
 
-# Agregar los datos al gráfico
-ax.plot(["Masculino", "Femenino"], [np.sum(first_column_data > 0), np.sum(second_column_data > 0)], color="red")
-ax.set_xlabel("Sexo")
-ax.set_ylabel("Cantidad")
-ax.set_title('Distribución de hombres y mujeres')
+# Crear el scatter plot
+ax.scatter(x_data, y_data, color='blue', alpha=0.6)
+
+# Configurar los ejes y el título
+ax.set_xlabel("Primera Columna")
+ax.set_ylabel("Segunda Columna")
+ax.set_title('Gráfico de Dispersión')
 
 # Mostrar el gráfico en Streamlit
 st.pyplot(fig)
