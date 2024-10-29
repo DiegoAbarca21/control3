@@ -29,8 +29,8 @@ st.dataframe(df)
 first_column_data = df.iloc[:, 0].to_numpy()
 second_column_data = df.iloc[:, 1].to_numpy()
 
-male_count = np.sum(first_column_data > 0)  
-female_count = np.sum(second_column_data > 0)  
+male_count = np.sum(first_column_data > -9999999999)  
+female_count = np.sum(second_column_data > -9999999999)  
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 3))
 ax[0].scatter(["desde", "hasta"], [male_count, female_count], color="red")
