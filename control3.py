@@ -26,17 +26,18 @@ except ValueError:
 df = pd.DataFrame(np.random.randn(25, 10))
 st.dataframe(df)
 
+# Extraer los datos de las primeras dos columnas
 first_column_data = df.iloc[:, 0].to_numpy()
 second_column_data = df.iloc[:, 1].to_numpy()
 
-male_count = np.sum(first_column_data > -9999999999)  
-female_count = np.sum(second_column_data > -9999999999)  
-
+# Crear una figura con un solo gráfico
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
-ax[0].scatter(["desde", "hasta"], [male_count, female_count], color="red")
-ax[0].set_xlabel("numeros")
-ax[0].set_ylabel("pickaxe")
-ax[0].set_title('Distribución de hombres y mujeres')
 
+# Agregar los datos al gráfico
+ax.bar(["Masculino", "Femenino"], [np.sum(first_column_data > 0), np.sum(second_column_data > 0)], color="red")
+ax.set_xlabel("Sexo")
+ax.set_ylabel("Cantidad")
+ax.set_title('Distribución de hombres y mujeres')
 
+# Mostrar el gráfico en Streamlit
 st.pyplot(fig)
