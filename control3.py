@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 
 st.title("Mickey poderoso")
 st.header("El mas poderoso")
@@ -10,4 +11,8 @@ st.sidebar.image("MICKEY.jpg")
 
 primernum = st.sidebar.text_input("Ingrese un numero")
 segundonum = st.sidebar.text_input("Ingrese otro numero")
-st.sidebar.write("La multiplicacion es:",primernum*segundonum)
+primernum = st.sidebar.text_input("Ingrese un numero")
+segundonum = st.sidebar.text_input("Ingrese otro numero")
+primersegundonum = np.array([primernum,segundonum])
+nummult = np.prod(primersegundonum)
+st.sidebar.write("La multiplicacion es:",nummult)
