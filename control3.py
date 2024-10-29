@@ -10,10 +10,10 @@ st.markdown("Texto en formato exotico")
 st.sidebar.image("MICKEY.jpg")
 
 
-primernum = 0
-segundonum = 0
 primernum = st.sidebar.text_input("Ingrese un numero")
 segundonum = st.sidebar.text_input("Ingrese otro numero")
+primernum.astype(int)
+segundonum.astype(int)
 primersegundonum = np.array([primernum,segundonum])
 nummult = np.prod(primersegundonum)
 nummult.astype(str)
