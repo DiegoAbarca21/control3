@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import altair as alt
 
 st.title("Mickey poderoso")
 st.header("El mas poderoso")
@@ -42,3 +43,18 @@ ax.set_title('Gráfico de Dispersión')
 
 # Mostrar el gráfico en Streamlit
 st.pyplot(fig)
+
+import pandas as pd
+import numpy as np
+import streamlit as st
+import altair as alt
+
+
+chart = alt.Chart(df).mark_circle(size=60).encode(
+    x=x_data.name,
+    y=y_data.name,
+    tooltip=['x', 'y']
+).interactive()
+
+st.altair_chart(chart, use_container_width=True)
+
