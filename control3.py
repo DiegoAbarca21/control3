@@ -20,3 +20,6 @@ try:
   st.sidebar.write("La multiplicacion es:", resultado)
 except ValueError:
   st.sidebar.write("Por favor, ingrese números válidos.")
+
+df = pd.DataFrame(np.random.randn(25,10))
+st.dataframe(df)
