@@ -33,9 +33,9 @@ male_count = np.sum(first_column_data > 0)
 female_count = np.sum(second_column_data > 0)  
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 3))
-ax[0].plot(["Masculino", "Femenino"], [male_count, female_count], color="red")
+ax[0].scatter(["desde", "hasta"], [male_count, female_count], color="red")
 ax[0].set_xlabel("numeros")
-ax[0].set_ylabel("Cantidad")
+ax[0].set_ylabel("pickaxe")
 ax[0].set_title('Distribución de hombres y mujeres')
 
 
