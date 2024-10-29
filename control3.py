@@ -26,14 +26,14 @@ except ValueError:
 df = pd.DataFrame(np.random.randn(25, 30))
 st.dataframe(df)
 
-x_data = df.iloc[:, 0].to_numpy()  # Primera columna
-y_data = df.iloc[:, 1].to_numpy()  # Segunda columna
+x_data = df.iloc[:, 0].to_numpy() 
+y_data = df.iloc[:, 1].to_numpy() 
 
 # Crear una figura con un solo gráfico
 fig, ax = plt.subplots(figsize=(10, 5))
 
 # Crear el scatter plot
-ax.plot(x_data, y_data, color='blue', alpha=0.6)
+ax.scatter(x_data, y_data, color='lightgreen', alpha=0.6)
 
 # Configurar los ejes y el título
 ax.set_xlabel("Primera Columna")
