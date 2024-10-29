@@ -34,7 +34,7 @@ second_column_data = df.iloc[:, 1].to_numpy()
 fig, ax = plt.subplots(1, 1, figsize=(10, 3))
 
 # Agregar los datos al gráfico
-ax.bar(["Masculino", "Femenino"], [np.sum(first_column_data > 0), np.sum(second_column_data > 0)], color="red")
+ax.plot(["Masculino", "Femenino"], [np.sum(first_column_data > 0), np.sum(second_column_data > 0)], color="red")
 ax.set_xlabel("Sexo")
 ax.set_ylabel("Cantidad")
 ax.set_title('Distribución de hombres y mujeres')
