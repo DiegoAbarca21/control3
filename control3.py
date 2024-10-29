@@ -33,7 +33,7 @@ y_data = df.iloc[:, 1].to_numpy()  # Segunda columna
 fig, ax = plt.subplots(figsize=(10, 5))
 
 # Crear el scatter plot
-ax.scatter(x_data, y_data, color='blue', alpha=0.6)
+ax.plot(x_data, y_data, color='blue', alpha=0.6)
 
 # Configurar los ejes y el título
 ax.set_xlabel("Primera Columna")
