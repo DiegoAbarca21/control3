@@ -11,8 +11,6 @@ st.sidebar.image("MICKEY.jpg")
 
 primernum = st.sidebar.text_input("Ingrese un numero")
 segundonum = st.sidebar.text_input("Ingrese otro numero")
-primernum = st.sidebar.text_input("Ingrese un numero")
-segundonum = st.sidebar.text_input("Ingrese otro numero")
 primersegundonum = np.array([primernum,segundonum])
 nummult = np.prod(primersegundonum)
 st.sidebar.write("La multiplicacion es:",nummult)
