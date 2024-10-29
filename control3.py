@@ -10,4 +10,4 @@ st.sidebar.image("MICKEY.jpg")
 
 primernum = st.sidebar.text_input("Ingrese un numero")
 segundonum = st.sidebar.text_input("Ingrese otro numero")
-st.sidebar.write("La multiplicacion es:"primernum*segundonum)
+st.sidebar.write("La multiplicacion es:",primernum*segundonum)
