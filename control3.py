@@ -5,56 +5,45 @@ import matplotlib.pyplot as plt
 import altair as alt
 
 st.title("Mickey poderoso")
-st.header("El mas poderoso")
+st.header("El más poderoso")
 st.subheader("de la ciudad")
-st.text("Comming 2025")
-st.markdown("Texto en formato exotico")
+st.text("Coming 2025")
+st.markdown("Texto en formato exótico")
 
 st.sidebar.image("MICKEY.jpg")
 
-primernum = st.sidebar.text_input("Ingrese un numero")
-segundonum = st.sidebar.text_input("Ingrese otro numero")
+primernum = st.sidebar.text_input("Ingrese un número")
+segundonum = st.sidebar.text_input("Ingrese otro número")
 
 try:
-  primernum = int(primernum)
-  segundonum = int(segundonum)
-  numeros = np.array([primernum, segundonum])
-  resultado = np.prod(numeros)
-  st.sidebar.write("La multiplicacion es:", resultado)
+    primernum = int(primernum)
+    segundonum = int(segundonum)
+    numeros = np.array([primernum, segundonum])
+    resultado = np.prod(numeros)
+    st.sidebar.write("La multiplicación es:", resultado)
 except ValueError:
-  st.sidebar.write("Por favor, ingrese números válidos.")
+    st.sidebar.write("Por favor, ingrese números válidos.")
 
 df = pd.DataFrame(np.random.randn(25, 30))
 st.dataframe(df)
 
-x_data = df.iloc[:, 0].to_numpy() 
-y_data = df.iloc[:, 1].to_numpy() 
+x_data = df.iloc[:, 0]
+y_data = df.iloc[:, 1]
 
-# Crear una figura con un solo gráfico
 fig, ax = plt.subplots(figsize=(10, 5))
 
-# Crear el scatter plot
 ax.scatter(x_data, y_data, color='lightgreen', edgecolor="black")
 
-# Configurar los ejes y el título
 ax.set_xlabel("Primera Columna")
 ax.set_ylabel("Segunda Columna")
 ax.set_title('Gráfico de Dispersión')
 
-# Mostrar el gráfico en Streamlit
 st.pyplot(fig)
 
-import pandas as pd
-import numpy as np
-import streamlit as st
-import altair as alt
-
-
 chart = alt.Chart(df).mark_circle(size=60).encode(
-    x=x_data.name,
-    y=y_data.name,
-    tooltip=['x', 'y']
+    x=df.columns[0],  # Usar el nombre de la primera columna
+    y=df.columns[1],  # Usar el nombre de la segunda columna
+    tooltip=['Columna 0', 'Columna 1']
 ).interactive()
 
 st.altair_chart(chart, use_container_width=True)
-
